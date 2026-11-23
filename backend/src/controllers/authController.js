@@ -16,7 +16,7 @@ import { signAccess, signRefresh, hashToken } from "../utils/tokens.js";
 const cookieOptions = () => ({
   httpOnly: true,
   secure: process.env.NODE_ENV === "production",
-  sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+  sameSite: "lax",
   path: "/api/auth",
 });
 export async function login(req, res) {
