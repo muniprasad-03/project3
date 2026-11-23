@@ -4,7 +4,8 @@ import api from "../services/api";
 const today = new Date().toISOString().slice(0, 10);
 const periods = Array.from({ length: 6 }, (_, index) => index + 1);
 const fileBaseUrl =
-  (import.meta.env.VITE_API_URL || "http://localhost:5000/api").replace(
+  (import.meta.env.VITE_API_URL ||
+    (import.meta.env.PROD ? "" : "http://localhost:5000/api")).replace(
     /\/api\/?$/,
     "",
   );

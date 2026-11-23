@@ -4,7 +4,8 @@ import api from "../services/api";
 import { useAuth } from "../context/AuthContext";
 
 const fileBaseUrl =
-  (import.meta.env.VITE_API_URL || "http://localhost:5000/api").replace(
+  (import.meta.env.VITE_API_URL ||
+    (import.meta.env.PROD ? "" : "http://localhost:5000/api")).replace(
     /\/api\/?$/,
     "",
   );

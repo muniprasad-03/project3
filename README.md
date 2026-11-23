@@ -96,6 +96,32 @@ StudentManagementSystem/
 - MongoDB Atlas or local MongoDB
 - A modern desktop, tablet, or mobile browser
 
+## Production deployment
+
+Set the frontend environment variable in Vercel:
+
+```env
+VITE_API_URL=https://YOUR-RENDER-SERVICE.onrender.com/api
+```
+
+Set these environment variables in Render:
+
+```env
+NODE_ENV=production
+MONGODB_URI=your-MongoDB-Atlas-uri
+CLIENT_ORIGIN=https://YOUR-VERCEL-DOMAIN.vercel.app
+JWT_ACCESS_SECRET=a-long-random-secret
+JWT_REFRESH_SECRET=another-long-random-secret
+ADMIN_NAME=System Administrator
+ADMIN_EMAIL=admin@example.com
+ADMIN_PASSWORD=a-strong-admin-password
+```
+
+`CLIENT_ORIGIN` may contain comma-separated Vercel domains. Redeploy both
+services after changing these variables. Create the initial administrator by
+running `npm run seed:admin` once with the Render environment variables, or run
+it in the Render shell.
+
 ## Backend Setup
 
 ```powershell
